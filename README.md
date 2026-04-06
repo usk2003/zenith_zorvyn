@@ -65,4 +65,4 @@ While the project initiated as a frontend-specific challenge, it quickly evolved
 
 ---
 
-*© 2026 ZENITH FINANCIAL*
+*© 2026 ZENITH FINANCIAL - By Urlana Suresh Kumar*
