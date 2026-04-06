@@ -59,7 +59,9 @@ A modern, high-performance stack optimized for responsiveness and security:
 ---
 
 ## 📐 The Visionary
-**Zenith** was architected and engineered by **Urlana Suresh Kumar**. It was born from a need for a professional, privacy-first interface where users can manage their financial destiny with total clarity and absolute control.
+**Zenith** was architected and engineered by **Urlana Suresh Kumar** as a core submission for the **Zorvyn Frontend Assessment**.
+
+While the project initiated as a frontend-specific challenge, it quickly evolved through **Scrum/Agile methodology** into a robust financial engineering ecosystem. The long-term tactical roadmap includes a deep-link integration with the creator's star project: [**StockTraQ**](https://github.com/usk2003/StockTraQ-v2), aimed at combining high-density portfolio tracking with real-time market intelligence.
 
 ---
 

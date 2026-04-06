@@ -55,7 +55,7 @@ const CreatorModal = ({ isOpen, onClose }) => {
                    <h4 className="text-[10px] font-black uppercase tracking-[0.4em]">The Genesis (Why)</h4>
                 </div>
                 <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed italic pr-6 pb-4 border-b border-white/5">
-                   Zenith was built to dismantle the compromise between <span className="text-emerald-500">Sophisticated Tracking</span> and <span className="text-emerald-500">Absolute Privacy</span>. Most tools harvest your data as you manage your wealth; I started this to ensure the engineer remains the sole master of their data.
+                   Zenith was architected as a core submission for the <span className="text-emerald-500">Zorvyn Frontend Assessment</span>. What began as a tactical challenge evolved through <span className="text-emerald-500">Scrum/Agile methodology</span> into a full-scale ecosystem, with a strategic roadmap to integrate with <span className="text-emerald-500 hover:underline cursor-pointer" onClick={() => window.open('https://github.com/usk2003/StockTraQ-v2')}>StockTraQ</span> intelligence.
                 </p>
                 <div className="flex items-center gap-6 pt-4">
                    <div className="flex items-center gap-2 text-[9px] font-black uppercase text-gray-500 tracking-widest"><Shield size={14} className="text-emerald-500" /> AES-256 Validated</div>
