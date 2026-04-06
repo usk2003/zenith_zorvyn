@@ -6,6 +6,7 @@ import useStore from '../store/useStore';
 const Header = () => {
   const { isDarkMode, toggleDarkMode, role, setRole, userProfile, security, logout } = useStore();
   const [isRecovering, setIsRecovering] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -78,71 +79,63 @@ const Header = () => {
           {/* Account Group: Secure Switcher & Profile */}
           <div className="flex items-center gap-3 bg-gray-50 dark:bg-white/5 p-1.5 rounded-[1.5rem] border border-emerald-500/10 dark:border-emerald-500/20 text-gray-900 dark:text-white">
             {/* Executive Badge Switcher */}
-            <div className="hidden sm:block relative overflow-hidden h-9 min-w-[140px]">
-              {role === 'viewer' ? (
-                <button 
-                  onClick={() => setRole('admin_verify')}
-                  className="w-full h-full flex items-center justify-center gap-2.5 px-4 rounded-2xl text-[9px] font-black uppercase tracking-widest text-gray-500 hover:bg-white/50 dark:hover:bg-white/5 hover:text-accent transition-all duration-500"
-                >
-                  <div className="w-1.5 h-1.5 bg-gray-300 dark:bg-white/20 rounded-full animate-pulse" />
-                  Viewer Mode
-                </button>
+            <div className="hidden sm:block relative overflow-visible h-9 min-w-[140px] z-[120]">
+              {role === 'admin_verify' ? (
+                <div className="absolute top-0 right-0 h-9 flex items-center px-3 bg-white dark:bg-black rounded-2xl border border-accent/40 animate-in zoom-in duration-300 shadow-xl shadow-accent/10 whitespace-nowrap overflow-hidden">
+                  <span className="text-[8px] font-black uppercase text-accent tracking-tighter mr-1.5">PIN:</span>
+                  <input
+                    autoFocus
+                    type="password"
+                    maxLength={4}
+                    placeholder="****"
+                    className="w-10 bg-transparent text-[10px] font-black tracking-[0.3em] outline-none text-accent placeholder-accent/20"
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === (security?.pin || '1357')) {
+                        setRole('admin');
+                      } else if (val.length === 4) {
+                        e.target.value = '';
+                        e.target.classList.add('shake');
+                        setTimeout(() => e.target.classList.remove('shake'), 400);
+                      }
+                    }}
+                  />
+                  <div className="text-[6px] font-black uppercase text-gray-400 leading-[1.2] border-l border-gray-200 dark:border-white/10 pl-2 ml-1 w-max hidden md:block">
+                    Prototype PIN: <span className="text-accent text-[7px]">1357</span><br/>
+                    <span className="opacity-60 text-[5px] tracking-[0.2em]">Change in Profile &rarr; Security</span>
+                  </div>
+                  <button onClick={() => setRole('viewer')} className="ml-2 p-1 text-gray-400 hover:text-red-500 transition-colors"><X size={10} /></button>
+                </div>
               ) : (
-                <button 
-                  onClick={() => setRole('viewer')}
-                  className="w-full h-full flex items-center justify-center gap-2.5 px-4 rounded-2xl bg-accent text-white shadow-xl shadow-accent/20 animate-in zoom-in duration-500 group/admin"
+                <div className="relative h-full"
+                     onMouseEnter={() => setDropdownOpen(true)}
+                     onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <UserCircle size={14} className="group-hover:scale-110 transition-transform" />
-                  <span className="tracking-[0.15em]">Executive</span>
-                </button>
-              )}
-
-              {/* Secure Mode PIN Verification */}
-              {role === 'admin_verify' && (
-                <div className="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center animate-in slide-in-from-right-full duration-500 z-10">
-                  {!isRecovering ? (
-                    <div className="flex items-center gap-2 px-3">
-                      <span className="text-[8px] font-black uppercase text-accent tracking-tighter">PIN:</span>
-                      <input
-                        autoFocus
-                        type="password"
-                        maxLength={4}
-                        placeholder="****"
-                        className="w-10 bg-transparent text-xs font-black tracking-[0.3em] outline-none text-accent placeholder-accent/20"
-                        onChange={(e) => {
-                          const val = e.target.value;
-                          if (val === security.pin) {
-                            setRole('admin');
-                          } else if (val.length === 4) {
-                            e.target.value = '';
-                            e.target.classList.add('shake');
-                            setTimeout(() => e.target.classList.remove('shake'), 400);
-                          }
-                        }}
-                      />
-                      <button onClick={() => setRole('viewer')} className="p-1 hover:text-red-500 transition-colors"><X size={12} /></button>
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2 px-3 w-full">
-                       <input
-                        autoFocus
-                        type="password"
-                        placeholder="Security Answer..."
-                        className="w-full bg-transparent text-[9px] font-black outline-none text-accent"
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            if (e.target.value === security.answer) {
-                              setRole('admin');
-                              setIsRecovering(false);
-                            } else {
-                              e.target.value = '';
-                              e.target.classList.add('shake');
-                              setTimeout(() => e.target.classList.remove('shake'), 400);
-                            }
-                          }
-                        }}
-                      />
-                      <button onClick={() => setIsRecovering(false)} className="p-1 hover:text-red-500"><X size={12} /></button>
+                  <button className="w-full h-full flex items-center justify-between gap-3 px-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-transparent hover:border-emerald-500/20 transition-all font-black uppercase text-[9px] tracking-widest outline-none">
+                    {role === 'admin' ? (
+                      <span className="text-accent font-serif italic tracking-[0.2em] capitalize text-[11px] leading-none mt-0.5">Executive</span>
+                    ) : (
+                      <span className="text-gray-500 dark:text-gray-400">Viewer Mode</span>
+                    )}
+                    <span className="text-gray-400 opacity-50 text-[7px] pointer-events-none">▼</span>
+                  </button>
+                  
+                  {dropdownOpen && (
+                    <div className="absolute top-full pt-1.5 w-full origin-top z-50">
+                      <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-gray-100 dark:border-white/10 shadow-2xl p-1.5 flex flex-col gap-1 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <button 
+                          onClick={() => { setRole('viewer'); setDropdownOpen(false); }}
+                          className={`px-3 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-xl text-left transition-colors ${role === 'viewer' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}
+                        >
+                          Viewer Mode
+                        </button>
+                        <button 
+                          onClick={() => { if(role !== 'admin') setRole('admin_verify'); setDropdownOpen(false); }}
+                          className={`px-3 py-2.5 text-[9px] font-black uppercase tracking-widest rounded-xl text-left transition-colors ${role === 'admin' ? 'bg-accent/10 text-accent font-serif italic tracking-[0.2em] capitalize text-[11px]' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-accent font-serif italic tracking-[0.2em] capitalize text-[11px]'}`}
+                        >
+                          Executive
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
