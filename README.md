@@ -1,4 +1,4 @@
-# ZENITH // Strategic Executive Wealth Terminal
+# ZENITH Dashboard
 
 Zenith is a high-density, privacy-first financial command center designed for individuals who demand absolute data sovereignty and professional-grade financial intelligence. Built on an obsidian-minimalist aesthetic, Zenith transforms personal finance into an executive engineering discipline.
 
