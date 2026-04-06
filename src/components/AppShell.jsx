@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header'; 
-import FloatingNav from './FloatingNav';
 import Footer from './Footer';
 import { Plus } from 'lucide-react';
 import CommandPalette from './CommandPalette';
@@ -44,13 +43,13 @@ const AppShell = ({ children }) => {
       <div className="flex flex-col min-h-screen">
         <Header />
         
-        <main className="flex-1 p-4 lg:p-8 pt-16 lg:pt-20 overflow-x-hidden pb-16">
+        <main className="flex-1 p-4 lg:p-10 pt-28 lg:pt-32 overflow-x-hidden">
           <div className="max-w-7xl mx-auto space-y-6">
             {children}
           </div>
         </main>
 
-        <FloatingNav />
+
         
         {/* Floating Action Node */}
         <button 

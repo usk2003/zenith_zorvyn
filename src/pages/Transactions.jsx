@@ -34,6 +34,7 @@ const Transactions = () => {
   const isLoading = useInitialLoading(800);
   
   const [currentPage, setCurrentPage] = useState(1);
+  const [jumpPage, setJumpPage] = useState('');
   const itemsPerPage = 10;
 
   // 1. Filtering & Sorting Logic
@@ -89,6 +90,32 @@ const Transactions = () => {
     currentPage * itemsPerPage
   );
 
+  const getPaginationRange = () => {
+    const delta = 1;
+    const range = [];
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
+      range.push(i);
+    }
+
+    if (currentPage - delta > 2) {
+      range.unshift("...");
+    }
+    if (currentPage + delta < totalPages - 1) {
+      range.push("...");
+    }
+
+    range.unshift(1);
+    if (totalPages > 1) {
+      range.push(totalPages);
+    }
+
+    return range;
+  };
+
   const handleSort = (field) => {
     const isSameField = filters.sortBy === field;
     const newOrder = isSameField && filters.sortOrder === 'desc' ? 'asc' : 'desc';
@@ -97,7 +124,22 @@ const Transactions = () => {
 
   const SortIcon = ({ field }) => {
     if (filters.sortBy !== field) return <ArrowUpDown size={12} className="ml-1 opacity-20" />;
-    return filters.sortOrder === 'desc' ? <ChevronDown size={12} className="ml-1" /> : <ChevronUp size={12} className="ml-1" />;
+    return filters.sortOrder === 'desc' ? <ChevronDown size={12} className="ml-1 text-white" /> : <ChevronUp size={12} className="ml-1 text-white" />;
+  };
+
+  const handleJumpPage = (e) => {
+    e.preventDefault();
+    const pageNum = parseInt(jumpPage);
+    if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
+      setCurrentPage(pageNum);
+      setJumpPage('');
+    } else if (pageNum > totalPages) {
+      setCurrentPage(totalPages);
+      setJumpPage('');
+    } else if (pageNum < 1) {
+      setCurrentPage(1);
+      setJumpPage('');
+    }
   };
   
   const handleAdd = () => {
@@ -142,7 +184,7 @@ const Transactions = () => {
       </div>
 
       {/* Transactions Container */}
-      <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200/50 dark:border-gray-800 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+      <div className="bg-white dark:bg-black rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
         {isLoading ? (
           <div className="p-4 space-y-4">
             {[...Array(6)].map((_, i) => (
@@ -170,53 +212,53 @@ const Transactions = () => {
             <div className="hidden sm:block overflow-x-auto">
               <table className="w-full text-left" role="grid" aria-label="Transactions Table">
                 <thead>
-                  <tr className="border-b border-gray-50 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/30">
+                  <tr className="border-b border-emerald-500/10 dark:border-emerald-500/20 bg-gray-50/50 dark:bg-white/[0.02]">
                     <th 
-                      className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest cursor-pointer hover:text-accent transition-colors"
+                      className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] cursor-pointer hover:text-accent transition-colors"
                       onClick={() => handleSort('date')}
                       aria-sort={filters.sortBy === 'date' ? (filters.sortOrder === 'asc' ? 'ascending' : 'descending') : 'none'}
                     >
                       <div className="flex items-center">Date <SortIcon field="date" /></div>
                     </th>
-                    <th className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest">Description</th>
+                    <th className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em]">Description</th>
                     <th 
-                      className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest cursor-pointer hover:text-accent transition-colors"
+                      className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] cursor-pointer hover:text-accent transition-colors"
                       onClick={() => handleSort('category')}
                       aria-sort={filters.sortBy === 'category' ? (filters.sortOrder === 'asc' ? 'ascending' : 'descending') : 'none'}
                     >
                       <div className="flex items-center">Category <SortIcon field="category" /></div>
                     </th>
-                    <th className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest">Type</th>
+                    <th className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em]">Type</th>
                     <th 
-                      className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest cursor-pointer hover:text-accent transition-colors text-right"
+                      className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] cursor-pointer hover:text-accent transition-colors text-right"
                       onClick={() => handleSort('amount')}
                       aria-sort={filters.sortBy === 'amount' ? (filters.sortOrder === 'asc' ? 'ascending' : 'descending') : 'none'}
                     >
                       <div className="flex items-center justify-end">Amount <SortIcon field="amount" /></div>
                     </th>
-                    {isAdmin && <th className="p-4 text-xs font-black text-gray-400 uppercase tracking-widest text-right">Actions</th>}
+                    {isAdmin && <th className="p-5 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] text-right">Actions</th>}
                   </tr>
                 </thead>
                 <tbody role="rowgroup">
                   {paginatedTransactions.map((t, idx) => (
                     <tr 
                       key={t.id} 
-                      className="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors animate-in fade-in slide-in-from-left-4 duration-500"
-                      style={{ animationDelay: `${idx * 50}ms` }}
+                      className="border-b border-emerald-500/10 dark:border-emerald-500/20 hover:bg-gray-50/50 dark:hover:bg-white/[0.03] transition-all group animate-in fade-in slide-in-from-left-4 duration-700"
+                      style={{ animationDelay: `${idx * 100}ms` }}
                       role="row"
                     >
-                      <td className="p-4 text-sm text-gray-500 dark:text-gray-400 font-medium" role="gridcell">{t.date}</td>
-                      <td className="p-4" role="gridcell">
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">{t.description}</p>
+                      <td className="p-5 text-xs text-gray-400 dark:text-gray-500 font-bold italic tracking-tighter" role="gridcell">{t.date?.split('T')[0]}</td>
+                      <td className="p-5" role="gridcell">
+                        <p className="text-sm font-black text-gray-900 dark:text-white uppercase italic tracking-tighter group-hover:text-accent transition-colors">{t.description}</p>
                       </td>
-                      <td className="p-4" role="gridcell">
-                        <span className="flex items-center gap-2 text-xs font-bold text-gray-600 dark:text-gray-400">
-                          <Tag size={14} className="text-accent" aria-hidden="true" />
+                      <td className="p-5" role="gridcell">
+                        <span className="flex items-center gap-2 text-[10px] font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                          <Tag size={12} className="text-accent" aria-hidden="true" />
                           {t.category}
                         </span>
                       </td>
-                      <td className="p-4" role="gridcell">
-                        <span className={`text-[10px] uppercase tracking-tighter px-2 py-1 rounded-lg font-black inline-flex items-center gap-1 ${
+                      <td className="p-5" role="gridcell">
+                        <span className={`text-[9px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-lg font-black inline-flex items-center gap-1.5 transition-all ${
                           t.type === 'income' ? 'bg-income/10 text-income' : 'bg-expense/10 text-expense'
                         }`}>
                           {t.type === 'income' ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
@@ -253,34 +295,35 @@ const Transactions = () => {
             </div>
 
             {/* Mobile Card View */}
-            <div className="sm:hidden divide-y divide-gray-50 dark:divide-gray-800">
+            <div className="sm:hidden divide-y divide-emerald-500/10 dark:divide-emerald-500/20">
               {paginatedTransactions.map((t, idx) => (
                 <div 
                   key={t.id} 
-                  className="p-5 space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500"
-                  style={{ animationDelay: `${idx * 50}ms` }}
+                  className="p-6 space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 group hover:bg-gray-50/50 dark:hover:bg-white/[0.02] transition-colors"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                   role="article"
                   aria-label={`Transaction: ${t.description}`}
                 >
                   <div className="flex justify-between items-start">
-                    <div>
-                      <p className="text-base font-bold text-gray-900 dark:text-white">{t.description}</p>
-                      <p className="text-xs text-gray-500 mt-1">{t.date} • {t.category}</p>
+                    <div className="space-y-1">
+                      <p className="text-sm font-black text-gray-900 dark:text-white uppercase italic tracking-tighter group-hover:text-accent transition-colors">{t.description}</p>
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">{t.date?.split('T')[0]} • {t.category}</p>
                     </div>
-                    <p className={`text-base font-black ${t.type === 'income' ? 'text-income' : 'text-gray-900 dark:text-white'}`}>
+                    <p className={`text-base font-black italic tracking-tighter ${t.type === 'income' ? 'text-income' : 'text-gray-900 dark:text-white'}`}>
                       {t.type === 'income' ? '+' : '-'}{formatCurrency(t.amount, currency)}
                     </p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className={`text-[10px] uppercase tracking-widest px-2 py-1 rounded-lg font-black ${
+                    <span className={`text-[9px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-lg font-black inline-flex items-center gap-1.5 ${
                       t.type === 'income' ? 'bg-income/10 text-income' : 'bg-expense/10 text-expense'
                     }`}>
+                      {t.type === 'income' ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                       {t.type}
                     </span>
                     {isAdmin && (
                       <div className="flex gap-2">
-                        <button onClick={() => handleEdit(t)} className="p-2 bg-gray-50 dark:bg-gray-800 rounded-xl" aria-label={`Edit ${t.description}`}><Pencil size={18}/></button>
-                        <button onClick={() => handleDelete(t.id)} className="p-2 bg-gray-50 dark:bg-gray-800 rounded-xl text-expense" aria-label={`Delete ${t.description}`}><Trash2 size={18}/></button>
+                        <button onClick={() => handleEdit(t)} className="p-2.5 bg-gray-50 dark:bg-white/5 text-gray-400 hover:text-accent rounded-xl transition-all" aria-label={`Edit ${t.description}`}><Pencil size={18}/></button>
+                        <button onClick={() => handleDelete(t.id)} className="p-2.5 bg-gray-50 dark:bg-white/5 text-gray-400 hover:text-expense rounded-xl transition-all" aria-label={`Delete ${t.description}`}><Trash2 size={18}/></button>
                       </div>
                     )}
                   </div>
@@ -293,37 +336,52 @@ const Transactions = () => {
 
       {/* Pagination Footer */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between pb-10 animate-in fade-in duration-1000">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            Showing <span className="font-bold">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="font-bold">{Math.min(currentPage * itemsPerPage, filteredAndSortedTransactions.length)}</span> of <span className="font-bold">{filteredAndSortedTransactions.length}</span>
+        <div className="flex items-center justify-between pb-10 animate-in fade-in duration-1000 delay-300">
+          <p className="text-[10px] font-black uppercase text-gray-400 dark:text-gray-500 tracking-widest">
+            Audit Range: <span className="text-gray-900 dark:text-white">{(currentPage - 1) * itemsPerPage + 1}—{Math.min(currentPage * itemsPerPage, filteredAndSortedTransactions.length)}</span> of <span className="text-gray-900 dark:text-white">{filteredAndSortedTransactions.length}</span>
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            {/* Jump to Page */}
+            <form onSubmit={handleJumpPage} className="relative group">
+              <input
+                type="text"
+                placeholder="Jump..."
+                value={jumpPage}
+                onChange={(e) => setJumpPage(e.target.value)}
+                className="w-16 h-10 bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 rounded-xl px-2 text-[10px] font-black text-center focus:ring-2 focus:ring-accent outline-none transition-all placeholder:text-gray-400 dark:text-white"
+                aria-label="Jump to page number"
+              />
+            </form>
+
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 dark:border-gray-800 dark:hover:bg-gray-800 transition-colors"
+              className="p-3 rounded-xl border border-gray-100 dark:border-white/5 bg-white dark:bg-white/5 text-gray-400 hover:text-accent disabled:opacity-30 disabled:hover:text-gray-400 transition-all active:scale-95 shadow-sm"
             >
               <ChevronLeft size={18} />
             </button>
-            <div className="flex items-center gap-1">
-              {[...Array(totalPages)].map((_, i) => (
+            <div className="flex items-center gap-2">
+              {getPaginationRange().map((page, i) => (
                 <button
-                  key={i + 1}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`w-8 h-8 rounded-lg text-xs font-bold transition-all ${
-                    currentPage === i + 1 
-                      ? 'bg-accent text-white' 
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500'
+                  key={i}
+                  disabled={page === "..."}
+                  onClick={() => typeof page === 'number' && setCurrentPage(page)}
+                  className={`w-10 h-10 rounded-xl text-[10px] font-black tracking-widest transition-all active:scale-95 ${
+                    currentPage === page 
+                      ? 'bg-accent text-white shadow-lg shadow-accent/20' 
+                      : page === "..." 
+                        ? 'text-gray-400 cursor-default uppercase'
+                        : 'bg-white dark:bg-white/5 text-gray-400 hover:text-gray-900 dark:hover:text-white border border-emerald-500/10 dark:border-emerald-500/20'
                   }`}
                 >
-                  {i + 1}
+                  {page}
                 </button>
               ))}
             </div>
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 dark:border-gray-800 dark:hover:bg-gray-800 transition-colors"
+              className="p-3 rounded-xl border border-gray-100 dark:border-white/5 bg-white dark:bg-white/5 text-gray-400 hover:text-accent disabled:opacity-30 disabled:hover:text-gray-400 transition-all active:scale-95 shadow-sm"
             >
               <ChevronRight size={18} />
             </button>

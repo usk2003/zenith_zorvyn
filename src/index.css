@@ -4,14 +4,24 @@
 
 @layer base {
   body {
-    @apply transition-colors duration-300;
+    @apply transition-colors duration-300 font-sans;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 :root {
-  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
+
+/* Force Poppins on all text elements and form controls */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
 }
 
 html.dark {

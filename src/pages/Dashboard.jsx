@@ -60,7 +60,7 @@ const AccountIcon = ({ type, ...props }) => {
 };
 
 const LiquidityNode = ({ title, value, icon, trend, type, isDarkMode }) => (
-  <div className={`p-6 rounded-[2rem] border transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] hover:-translate-y-1 group relative overflow-hidden ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/[0.03]' : 'bg-white border-gray-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/10'}`}>
+  <div className={`p-6 rounded-[2rem] border transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] hover:-translate-y-1 group relative overflow-hidden ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/40 hover:bg-emerald-500/[0.03]' : 'bg-white border-emerald-500/10 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/10'}`}>
     <div className="flex items-center justify-between relative z-10">
       <div className="space-y-1">
          <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ const LiquidityNode = ({ title, value, icon, trend, type, isDarkMode }) => (
         type === 'income' ? 'bg-income/10 text-income' : 
         type === 'expense' ? 'bg-expense/10 text-expense' : 
         'bg-accent/10 text-accent'
-      } group-hover:scale-110 transition-transform shadow-sm border border-white/5`}>
+      } group-hover:scale-110 transition-transform shadow-sm border border-emerald-500/10 dark:border-emerald-500/20`}>
         {React.cloneElement(icon, { size: 24 })}
       </div>
     </div>
@@ -181,7 +181,7 @@ const CustomTreemapTooltip = ({ active, payload, transactions, currency, isDarkM
 
   return (
     <div className={`p-4 rounded-2xl shadow-2xl border min-w-[220px] backdrop-blur-xl animate-in fade-in zoom-in duration-200 ${
-      isDarkMode ? 'bg-[#050505]/95 border-emerald-500/20' : 'bg-white/95 border-gray-100'
+      isDarkMode ? 'bg-[#050505]/95 border-emerald-500/30' : 'bg-white/95 border-emerald-500/20'
     }`}>
       <div className="flex justify-between items-start mb-3">
         <div className="space-y-0.5">
@@ -194,7 +194,7 @@ const CustomTreemapTooltip = ({ active, payload, transactions, currency, isDarkM
       </div>
       
       {categoryTransactions.length > 0 && (
-        <div className="space-y-2 pt-3 border-t border-white/5">
+        <div className="space-y-2 pt-3 border-t border-emerald-500/10 dark:border-emerald-500/20">
            <p className="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em] mb-2">Tactical Inflow/Outflow</p>
            {categoryTransactions.map(t => (
              <div key={t.id} className="flex justify-between items-center group/tx">
@@ -279,7 +279,7 @@ const Dashboard = () => {
         </div>
         
         {/* Unified Health Core */}
-        <div className={`px-5 py-3 rounded-2xl border flex items-center gap-6 group transition-all duration-700 ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/10 shadow-emerald-500/5' : 'bg-white border-gray-50 shadow-md'}`}>
+        <div className={`px-5 py-3 rounded-2xl border flex items-center gap-6 group transition-all duration-700 ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/40 shadow-emerald-500/5' : 'bg-white border-emerald-500/10 shadow-md'}`}>
            <div className="relative w-12 h-12 flex items-center justify-center">
               <svg className="w-full h-full -rotate-90">
                 <circle cx="24" cy="24" r="20" fill="transparent" stroke="currentColor" strokeWidth="5" className="text-gray-100 dark:text-gray-800" />
@@ -327,7 +327,7 @@ const Dashboard = () => {
         {/* Primary Chart Layer */}
         <div className="xl:col-span-2 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
           {isLoading ? <Skeleton className="h-[350px] w-full rounded-[2rem]" /> : (
-            <div className={`p-6 rounded-[2rem] border h-full transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-100'}`}>
+            <div className={`p-6 rounded-[2rem] border h-full transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-emerald-500/10 shadow-sm hover:border-emerald-100'}`}>
               <div className="flex items-center justify-between mb-6">
                 <div className="space-y-0.5">
                   <h3 className="text-lg font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Strategic Velocity</h3>
@@ -370,7 +370,7 @@ const Dashboard = () => {
         {/* Tactical Watch Layer */}
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-[400ms]">
            {isLoading ? <Skeleton className="h-[350px] w-full rounded-[2rem]" /> : (
-             <div className={`p-6 rounded-[2rem] border h-full transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-100'}`}>
+             <div className={`p-6 rounded-[2rem] border h-full transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-emerald-500/10 shadow-sm hover:border-emerald-100'}`}>
                <div className="space-y-0.5 mb-6">
                  <h3 className="text-lg font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Budget Watch</h3>
                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.3em]">Consumption</p>
@@ -398,8 +398,8 @@ const Dashboard = () => {
         {/* Portfolio Distribution */}
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
           {isLoading ? <Skeleton className="h-[400px] w-full rounded-[3rem]" /> : (
-            <div className={`p-8 rounded-[3rem] border transition-all duration-700 h-full flex flex-col hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-100'}`}>
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100 dark:border-white/5">
+            <div className={`p-8 rounded-[3rem] border transition-all duration-700 h-full flex flex-col hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-emerald-500/10 shadow-sm hover:border-emerald-100'}`}>
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-500/10 dark:border-emerald-500/20">
                 <div className="space-y-1">
                   <h3 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Asset Distribution</h3>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">Diversification Intelligence</p>
@@ -464,8 +464,8 @@ const Dashboard = () => {
         {/* Roadmap Node */}
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-[500ms]">
            {isLoading ? <Skeleton className="h-[400px] w-full rounded-[3rem]" /> : (
-             <div className={`p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-100'}`}>
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100 dark:border-white/5">
+             <div className={`p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.08)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.01]' : 'bg-white border-emerald-500/10 shadow-sm hover:border-emerald-100'}`}>
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-500/10 dark:border-emerald-500/20">
                    <div className="space-y-1">
                       <h3 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Roadmap Alpha</h3>
                       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">Strategic Milestone Tracker</p>
@@ -527,8 +527,8 @@ const Dashboard = () => {
       {/* [Tactical Ledger & Accounts Hub] */}
       <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
          {/* Account Strip Card */}
-         <div className={`lg:col-span-1 p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-200'}`}>
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100 dark:border-white/5">
+         <div className={`lg:col-span-1 p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-200'}`}>
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-500/10 dark:border-emerald-500/20">
                <div className="space-y-1">
                   <h3 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Asset Hub</h3>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">Unified Capital Repository</p>
@@ -540,7 +540,7 @@ const Dashboard = () => {
             
             <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                {accounts.map(acc => (
-                 <div key={acc.id} className={`p-4 rounded-2xl border transition-all hover:translate-x-1.5 group min-h-[82px] flex flex-col justify-center ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-100 shadow-sm hover:bg-emerald-50/20 hover:border-emerald-100'}`}>
+                 <div key={acc.id} className={`p-4 rounded-2xl border transition-all hover:translate-x-1.5 group min-h-[82px] flex flex-col justify-center ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-100 shadow-sm hover:bg-emerald-50/20 hover:border-emerald-100'}`}>
                     <div className="space-y-1.5">
                        {/* Row 1: Name and Tag */}
                        <div className="flex justify-between items-center">
@@ -561,8 +561,8 @@ const Dashboard = () => {
 
          {/* Transaction Ledger Card */}
          <div className="lg:col-span-2 animate-in fade-in slide-in-from-right-4 duration-700 delay-800">
-            <div className={`p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] ${isDarkMode ? 'bg-white/[0.02] border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-200'}`}>
-               <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100 dark:border-white/5">
+            <div className={`p-8 rounded-[3rem] border transition-all duration-700 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] ${isDarkMode ? 'bg-white/[0.02] border-emerald-500/20 hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]' : 'bg-white border-gray-50 shadow-sm hover:border-emerald-200'}`}>
+               <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-500/10 dark:border-emerald-500/20">
                  <div className="space-y-1">
                    <h3 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic tracking-tighter">Tactical Ledger</h3>
                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">Real-time Transaction Stream</p>

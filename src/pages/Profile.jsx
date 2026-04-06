@@ -93,12 +93,12 @@ const Profile = () => {
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
       {/* Page Header */}
-      <div className="flex items-end justify-between border-b border-gray-100 dark:border-gray-800 pb-6">
+      <div className="flex items-end justify-between border-b border-emerald-500/10 dark:border-emerald-500/20 pb-6">
         <div>
           <h1 className="text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase italic leading-none">Command Center</h1>
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 mt-3 opacity-60">Personnel Identity & Infrastructure Protocols</p>
         </div>
-        <div className="flex bg-gray-100 dark:bg-gray-900 p-1.5 rounded-[1.5rem] border border-gray-200/50 dark:border-gray-800/50 shadow-inner">
+        <div className="flex bg-gray-100 dark:bg-black p-1.5 rounded-[1.5rem] border border-gray-200/50 dark:border-emerald-500/20/50 shadow-inner">
            {['identity', 'infrastructure', 'security'].map(tab => (
              <button
                key={tab}
@@ -115,7 +115,7 @@ const Profile = () => {
 
       {activeTab === 'identity' && (
         <div className="space-y-8 animate-in slide-in-from-left-4 duration-500">
-          <div className="bg-white dark:bg-gray-900 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
+          <div className="bg-white dark:bg-black rounded-[3rem] border border-emerald-500/10 dark:border-emerald-500/20 shadow-sm overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
             <div className="px-10 py-12">
               <div className="flex items-center gap-10">
                 <div 
@@ -176,26 +176,26 @@ const Profile = () => {
                        <div className="space-y-6">
                           <div>
                              <label className="text-[10px] font-black uppercase text-gray-400 block mb-2 tracking-widest">Full Name</label>
-                             <input type="text" value={draft.name} onChange={e => setDraft({...draft, name: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm focus:ring-2 focus:ring-accent/20 transition-all" />
+                             <input type="text" value={draft.name} onChange={e => setDraft({...draft, name: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-accent/20 transition-all" />
                           </div>
                           <div>
                              <label className="text-[10px] font-black uppercase text-gray-400 block mb-2 tracking-widest">Job Title</label>
-                             <input type="text" value={draft.jobTitle} onChange={e => setDraft({...draft, jobTitle: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm focus:ring-2 focus:ring-accent/20 transition-all" />
+                             <input type="text" value={draft.jobTitle} onChange={e => setDraft({...draft, jobTitle: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-accent/20 transition-all" />
                           </div>
                        </div>
                        <div className="space-y-6">
                           <div>
                              <label className="text-[10px] font-black uppercase text-gray-400 block mb-2 tracking-widest">Date of Birth</label>
-                             <input type="date" value={draft.dob} onChange={e => setDraft({...draft, dob: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm focus:ring-2 focus:ring-accent/20 transition-all" />
+                             <input type="date" value={draft.dob} onChange={e => setDraft({...draft, dob: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-accent/20 transition-all" />
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                              <div>
                                 <label className="text-[10px] font-black uppercase text-gray-400 block mb-2 tracking-widest">Phone</label>
-                                <input type="text" value={draft.phone} onChange={e => setDraft({...draft, phone: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm focus:ring-2 focus:ring-accent/20 transition-all" />
+                                <input type="text" value={draft.phone} onChange={e => setDraft({...draft, phone: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-accent/20 transition-all" />
                              </div>
                              <div>
                                 <label className="text-[10px] font-black uppercase text-gray-400 block mb-2 tracking-widest">Email</label>
-                                <input type="email" value={draft.email} onChange={e => setDraft({...draft, email: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm focus:ring-2 focus:ring-accent/20 transition-all" />
+                                <input type="email" value={draft.email} onChange={e => setDraft({...draft, email: e.target.value})} className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border-none outline-none font-bold text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-accent/20 transition-all" />
                              </div>
                           </div>
                        </div>
@@ -207,35 +207,35 @@ const Profile = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-             <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm flex items-center gap-4">
+             <div className="bg-white dark:bg-black p-6 rounded-[2rem] border border-emerald-500/10 dark:border-emerald-500/20 shadow-sm flex items-center gap-4">
                 <div className="p-3 bg-accent/10 text-accent rounded-xl"><Wallet size={20} /></div>
                 <div>
                    <p className="text-[10px] font-black uppercase text-gray-400">Net Liquidity</p>
-                   <p className="text-xl font-black">{formatCurrency(totalBalance, currency)}</p>
+                   <p className="text-xl font-black text-gray-900 dark:text-white">{formatCurrency(totalBalance, currency)}</p>
                 </div>
              </div>
-             <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm flex items-center gap-4">
+             <div className="bg-white dark:bg-black p-6 rounded-[2rem] border border-emerald-500/10 dark:border-emerald-500/20 shadow-sm flex items-center gap-4">
                 <div className="p-3 bg-blue-500/10 text-blue-500 rounded-xl"><Database size={20} /></div>
                 <div>
                    <p className="text-[10px] font-black uppercase text-gray-400">Asset Count</p>
-                   <p className="text-xl font-black">{accounts.length}</p>
+                   <p className="text-xl font-black text-gray-900 dark:text-white">{accounts.length}</p>
                 </div>
              </div>
-             <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm flex items-center gap-4">
+             <div className="bg-white dark:bg-black p-6 rounded-[2rem] border border-emerald-500/10 dark:border-emerald-500/20 shadow-sm flex items-center gap-4">
                 <div className="p-3 bg-accent/10 text-accent rounded-xl"><Target size={20} /></div>
                 <div>
                    <p className="text-[10px] font-black uppercase text-gray-400">Active Goals</p>
-                   <p className="text-xl font-black">{goals.length}</p>
+                   <p className="text-xl font-black text-gray-900 dark:text-white">{goals.length}</p>
                 </div>
              </div>
           </div>
 
           {/* Goal Roadmap Section */}
-          <section className="bg-white dark:bg-gray-900 p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 space-y-8 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
+          <section className="bg-white dark:bg-black p-10 rounded-[3rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-8 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[100px] rounded-full group-hover:bg-accent/10 transition-colors" />
               <div className="flex items-center justify-between relative z-10">
                   <div>
-                      <h2 className="text-3xl font-black uppercase tracking-tighter italic">Goal Roadmap</h2>
+                      <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tighter italic">Goal Roadmap</h2>
                       <p className="text-[10px] font-black uppercase text-accent tracking-[0.4em] mt-1 italic">Victory Trajectory Visualization</p>
                   </div>
                   <button onClick={() => {
@@ -264,12 +264,12 @@ const Profile = () => {
                   const monthsToVictory = Math.ceil(remaining / monthly);
                   
                   return (
-                    <div key={goal.id} className="p-8 bg-gray-50 dark:bg-gray-800/30 rounded-[2.5rem] border border-gray-100 dark:border-white/5 space-y-6">
+                    <div key={goal.id} className="p-8 bg-gray-50 dark:bg-white/[0.02] rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6">
                        <div className="flex justify-between items-start">
                           <div className="flex items-center gap-4">
                              <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center text-accent"><Target size={24} /></div>
                              <div>
-                                <h4 className="text-lg font-black uppercase tracking-tight italic">{goal.title}</h4>
+                                <h4 className="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight italic">{goal.title}</h4>
                                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Active Pursuit</p>
                              </div>
                           </div>
@@ -292,7 +292,7 @@ const Profile = () => {
                           </div>
                        </div>
 
-                       <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                       <div className="pt-4 border-t border-emerald-500/10 dark:border-emerald-500/20 flex items-center justify-between">
                           <div>
                              <p className="text-[8px] font-black uppercase text-gray-400 italic">Time To Victory</p>
                              <p className="text-xs font-black text-gray-900 dark:text-white mt-1 uppercase italic tracking-tighter">
@@ -318,10 +318,10 @@ const Profile = () => {
         <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8">
             {/* Capital Assets Management */}
-            <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
+            <section className="bg-white dark:bg-black p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                      <h2 className="text-xl font-black uppercase tracking-tight">Capital Assets</h2>
+                      <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Capital Assets</h2>
                       <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Reserve Management Library</p>
                   </div>
                   <button onClick={() => {
@@ -332,12 +332,12 @@ const Profile = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {accounts.map(acc => (
-                    <div key={acc.id} className="p-5 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-800 relative group">
+                    <div key={acc.id} className="p-5 bg-gray-50 dark:bg-white/[0.02] rounded-2xl border border-emerald-500/10 dark:border-emerald-500/20 relative group">
                         <div className="flex justify-between items-start mb-3">
-                          <div className="p-2 bg-white dark:bg-gray-900 rounded-lg text-accent shadow-sm"><Landmark size={14} /></div>
+                          <div className="p-2 bg-white dark:bg-black rounded-lg text-accent shadow-sm"><Landmark size={14} /></div>
                           <button onClick={() => deleteAccount(acc.id)} className="p-1.5 text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={14} /></button>
                         </div>
-                        <h4 className="text-xs font-black uppercase tracking-tight">{acc.name}</h4>
+                        <h4 className="text-xs font-black text-gray-900 dark:text-white uppercase tracking-tight">{acc.name}</h4>
                         <p className="text-lg font-black text-accent mt-1">{formatCurrency(acc.balance, currency)}</p>
                     </div>
                   ))}
@@ -346,9 +346,9 @@ const Profile = () => {
 
             {/* Currency & Classification Schemas */}
             <div className="space-y-8">
-                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+                <section className="bg-white dark:bg-black p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
                   <div>
-                      <h2 className="text-xl font-black uppercase tracking-tight">Currency Protocol</h2>
+                      <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Currency Protocol</h2>
                       <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Global Financial Units Configuration</p>
                   </div>
                   <div className="grid grid-cols-4 gap-2">
@@ -373,9 +373,9 @@ const Profile = () => {
                   </div>
                 </section>
 
-                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
+                <section className="bg-white dark:bg-black p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
                   <div>
-                    <h2 className="text-xl font-black uppercase tracking-tight">Classification Schemas</h2>
+                    <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Classification Schemas</h2>
                     <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Income & Expense Taxonomy</p>
                   </div>
                   
@@ -421,7 +421,7 @@ const Profile = () => {
           </div>
 
           {/* Data Management Section */}
-          <section className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 space-y-6 shadow-2xl relative overflow-hidden">
+          <section className="bg-white dark:bg-black text-gray-900 dark:text-white p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 blur-[100px] rounded-full" />
               <div className="flex items-center gap-4 mb-4 relative z-10">
                   <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-2xl"><AlertTriangle size={20} className="text-red-500" /></div>
@@ -462,10 +462,10 @@ const Profile = () => {
           </section>
 
           {/* Liabilities Matrix Section */}
-          <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6">
+          <section className="bg-white dark:bg-black p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6">
               <div className="flex items-center justify-between mb-4">
                   <div>
-                      <h2 className="text-xl font-black uppercase tracking-tight">Liabilities Matrix</h2>
+                      <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Liabilities Matrix</h2>
                       <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Debt Extinction & Interest Engineering</p>
                   </div>
                   <button onClick={() => {
@@ -501,7 +501,7 @@ const Profile = () => {
                   freedomDate.setMonth(startDate.getMonth() + n);
                   
                   return (
-                    <div key={loan.id} className="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-[2rem] border border-gray-100 dark:border-gray-800 relative group">
+                    <div key={loan.id} className="p-6 bg-gray-50 dark:bg-white/[0.02] rounded-[2rem] border border-emerald-500/10 dark:border-emerald-500/20 relative group">
                         <div className="flex justify-between items-start mb-6">
                            <div className="p-3 bg-red-500/10 text-red-500 rounded-xl"><Shield size={18} /></div>
                            <div className="flex items-center gap-2">
@@ -540,7 +540,7 @@ const Profile = () => {
                               </div>
                            </div>
 
-                           <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                           <div className="pt-4 border-t border-emerald-500/10 dark:border-emerald-500/20 flex items-center justify-between">
                               <div>
                                  <p className="text-[8px] font-black uppercase text-gray-400 underline decoration-red-500/30 underline-offset-4">Projected Freedom</p>
                                  <p className="text-xs font-black text-gray-700 dark:text-gray-300 mt-1 uppercase italic tracking-tighter">{freedomDate.toLocaleDateString('default', { month: 'long', year: 'numeric' })}</p>
@@ -555,7 +555,7 @@ const Profile = () => {
                   );
                 })}
                 {loans.length === 0 && (
-                   <div className="col-span-full py-12 text-center border-2 border-dashed border-gray-100 dark:border-gray-800 rounded-[3rem] opacity-40">
+                   <div className="col-span-full py-12 text-center border-2 border-dashed border-emerald-500/10 dark:border-emerald-500/20 rounded-[3rem] opacity-40">
                       <p className="text-[10px] font-black uppercase tracking-[0.4em]">Zero Liabilities Detected In Protocol</p>
                    </div>
                 )}
@@ -563,12 +563,12 @@ const Profile = () => {
           </section>
 
           {/* Investment Strategy Library */}
-          <section className="bg-white dark:bg-gray-900 p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 space-y-8 relative overflow-hidden group/inv">
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full group-hover/inv:bg-blue-500/10 transition-colors" />
+          <section className="bg-white dark:bg-black p-10 rounded-[3rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-8 relative overflow-hidden group/inv">
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/5 blur-[120px] rounded-full group-hover/inv:bg-emerald-500/10 transition-colors" />
               <div className="flex items-center justify-between relative z-10">
                   <div>
-                      <h2 className="text-3xl font-black uppercase tracking-tighter italic">Strategy Library</h2>
-                      <p className="text-[10px] font-black uppercase text-blue-500 tracking-[0.4em] mt-1 italic">Mutual Fund & Multi-Asset Planning</p>
+                      <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tighter italic">Strategy Library</h2>
+                      <p className="text-[10px] font-black uppercase text-emerald-500 tracking-[0.4em] mt-1 italic">Mutual Fund & Multi-Asset Planning</p>
                   </div>
                   <button onClick={() => {
                     const name = window.prompt("Fund Name:");
@@ -599,12 +599,12 @@ const Profile = () => {
                    const gainPct = ((inv.current - inv.invested) / inv.invested) * 100;
                    
                    return (
-                     <div key={inv.id} className="p-8 bg-gray-50 dark:bg-gray-900/50 rounded-[2.5rem] border border-gray-100 dark:border-white/5 space-y-8">
+                     <div key={inv.id} className="p-8 bg-gray-50 dark:bg-black/50 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-8">
                         <div className="flex justify-between items-start">
                            <div className="flex items-center gap-4">
-                              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-blue-500"><TrendingUp size={24} /></div>
+                              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center text-emerald-500"><TrendingUp size={24} /></div>
                               <div>
-                                 <h4 className="text-lg font-black uppercase tracking-tight italic">{inv.name}</h4>
+                                 <h4 className="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight italic">{inv.name}</h4>
                                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Type: {inv.type}</p>
                               </div>
                            </div>
@@ -615,21 +615,21 @@ const Profile = () => {
                            <div className="space-y-4">
                               <div>
                                  <p className="text-[8px] font-black uppercase text-gray-400 mb-1">Market Value</p>
-                                 <p className="text-2xl font-black text-blue-500 italic">{formatCurrency(inv.current, currency)}</p>
+                                 <p className="text-2xl font-black text-emerald-500 italic">{formatCurrency(inv.current, currency)}</p>
                               </div>
                               <div className="flex items-center gap-3">
                                  <span className="text-[10px] font-black px-2 py-1 bg-green-500/10 text-green-500 rounded-lg">+{gainPct.toFixed(1)}% Gain</span>
                               </div>
                            </div>
-                           <div className="bg-gray-100 dark:bg-white/5 p-4 rounded-3xl border border-gray-200 dark:border-white/10">
+                           <div className="bg-gray-100 dark:bg-white/5 p-4 rounded-3xl border border-gray-200 dark:border-emerald-500/20">
                               <p className="text-[8px] font-black uppercase text-gray-400 mb-1">Expected Return</p>
                               <p className="text-xl font-black text-gray-900 dark:text-white italic">{inv.expectedReturn}% <span className="text-[9px] font-bold text-gray-500">APR</span></p>
                               <p className="text-[8px] font-black uppercase text-gray-400 mt-3 mb-1">Horizon</p>
-                              <p className="text-sm font-black text-blue-400 uppercase italic">{inv.horizon} Years</p>
+                              <p className="text-sm font-black text-emerald-400 uppercase italic">{inv.horizon} Years</p>
                            </div>
                         </div>
 
-                        <div className="p-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl relative overflow-hidden group/wealth">
+                        <div className="p-6 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-3xl relative overflow-hidden group/wealth">
                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover/wealth:scale-110 transition-transform"><Sparkles size={48} className="text-white" /></div>
                            <p className="text-[9px] font-black uppercase text-white/60 tracking-widest mb-1 italic">Projected Terminal Wealth</p>
                            <p className="text-3xl font-black text-white italic tracking-tighter">
@@ -649,11 +649,11 @@ const Profile = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-in slide-in-from-bottom-8 duration-500">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* PIN Management */}
-              <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6 shadow-xl">
+              <section className="bg-white dark:bg-black p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6 shadow-xl">
                  <div className="flex items-center gap-4 mb-4">
                     <div className="p-3 bg-accent text-white rounded-2xl shadow-lg shadow-accent/20"><Shield size={20} /></div>
                     <div>
-                       <h2 className="text-xl font-black uppercase">PIN Rotation</h2>
+                       <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase">PIN Rotation</h2>
                        <p className="text-[9px] font-black uppercase text-gray-400">Security Credentials Protocol</p>
                     </div>
                  </div>
@@ -661,16 +661,16 @@ const Profile = () => {
                  <div className="space-y-4">
                     <div>
                        <label className="text-[10px] font-bold uppercase text-gray-400 block mb-2">Current PIN</label>
-                       <input type="password" value={pinForm.current} onChange={e => setPinForm({...pinForm, current: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black tracking-widest" />
+                       <input type="password" value={pinForm.current} onChange={e => setPinForm({...pinForm, current: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black text-gray-900 dark:text-white tracking-widest" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                        <div>
                           <label className="text-[10px] font-bold uppercase text-gray-400 block mb-2">New PIN</label>
-                          <input type="password" value={pinForm.new} onChange={e => setPinForm({...pinForm, new: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black tracking-widest text-accent" />
+                          <input type="password" value={pinForm.new} onChange={e => setPinForm({...pinForm, new: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black text-gray-900 dark:text-white tracking-widest text-accent" />
                        </div>
                        <div>
                           <label className="text-[10px] font-bold uppercase text-gray-400 block mb-2">Confirm PIN</label>
-                          <input type="password" value={pinForm.confirm} onChange={e => setPinForm({...pinForm, confirm: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black tracking-widest text-accent" />
+                          <input type="password" value={pinForm.confirm} onChange={e => setPinForm({...pinForm, confirm: e.target.value.slice(0,4)})} placeholder="****" className="w-full bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl outline-none font-black text-gray-900 dark:text-white tracking-widest text-accent" />
                        </div>
                     </div>
                     {pinError && <p className="text-[10px] font-black uppercase text-red-500 animate-shake">{pinError}</p>}
@@ -680,12 +680,12 @@ const Profile = () => {
               </section>
 
               {/* Recovery Infrastructure */}
-              <section className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 space-y-6 shadow-2xl relative overflow-hidden">
+              <section className="bg-white dark:bg-black text-gray-900 dark:text-white p-8 rounded-[2.5rem] border border-emerald-500/10 dark:border-emerald-500/20 space-y-6 shadow-2xl relative overflow-hidden">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 blur-[100px] rounded-full" />
                  <div className="flex items-center gap-4 mb-4 relative z-10">
                     <div className="p-3 bg-accent/10 border border-accent/20 rounded-2xl"><Award size={20} className="text-accent" /></div>
                     <div>
-                       <h2 className="text-xl font-black uppercase tracking-tight">Recovery Schema</h2>
+                       <h2 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Recovery Schema</h2>
                        <p className="text-[9px] font-black uppercase text-gray-400 dark:text-gray-500 tracking-widest">Emergency Access Restoration Protocol</p>
                     </div>
                  </div>
@@ -693,7 +693,7 @@ const Profile = () => {
                  <div className="space-y-5 relative z-10">
                     <div>
                        <label className="text-[10px] font-bold uppercase text-gray-400 dark:text-gray-500 block mb-2 tracking-widest">Security Question</label>
-                       <input type="text" value={secForm.question} onChange={e => setSecForm({...secForm, question: e.target.value})} placeholder="e.g. Unique Identifier from 2008?" className="w-full bg-gray-50 dark:bg-white/5 p-4 rounded-2xl outline-none font-bold italic border border-gray-100 dark:border-white/10" />
+                       <input type="text" value={secForm.question} onChange={e => setSecForm({...secForm, question: e.target.value})} placeholder="e.g. Unique Identifier from 2008?" className="w-full bg-gray-50 dark:bg-white/5 p-4 rounded-2xl outline-none font-bold italic border border-emerald-500/10 dark:border-emerald-500/20 text-gray-900 dark:text-white" />
                     </div>
                     <div>
                        <label className="text-[10px] font-bold uppercase text-gray-400 dark:text-gray-500 block mb-2 tracking-widest">Private Answer</label>
@@ -701,7 +701,7 @@ const Profile = () => {
                     </div>
                     <button onClick={handleSecUpdate} className="w-full bg-accent hover:bg-emerald-600 text-white p-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-xl shadow-accent/20">Update Recovery Key</button>
                  </div>
-                 <div className="mt-6 p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/10 text-[8px] font-black uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 leading-relaxed">
+                 <div className="mt-6 p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-emerald-500/10 dark:border-emerald-500/20 text-[8px] font-black uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 leading-relaxed">
                     Warning: Recovery Answer is the only bypass to Administrative Lock. Keep it encrypted in memory.
                  </div>
               </section>

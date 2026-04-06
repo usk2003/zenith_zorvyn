@@ -6,6 +6,7 @@ import NewTransaction from './pages/NewTransaction';
 import Insights from './pages/Insights';
 import Profile from './pages/Profile';
 import StrategicIntelligence from './pages/StrategicIntelligence';
+import Roadmap from './pages/Roadmap';
 
 import Landing from './pages/Landing';
 import Onboarding from './pages/Onboarding';
@@ -44,6 +45,7 @@ function App() {
             <Route path="/transactions/edit/:id" element={<NewTransaction />} />
             <Route path="/intelligence" element={<StrategicIntelligence />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<div className="p-8 text-center text-gray-500">Page not found</div>} />
           </Routes>

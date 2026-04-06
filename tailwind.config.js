@@ -13,7 +13,7 @@ export default {
         accent: '#10b981', // Emerald Green
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif', 'system-ui'],
+        sans: ['Poppins', 'sans-serif'],
       },
     },
   },
