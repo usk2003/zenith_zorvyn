@@ -132,7 +132,7 @@ const NewTransaction = () => {
     <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950/20 text-gray-900 dark:text-gray-100 font-sans selection:bg-accent/30 selection:text-accent pb-24">
        <div className="max-w-6xl mx-auto px-6 py-8 space-y-6 animate-in fade-in duration-700">
 
-          <header className="flex items-center justify-between bg-white dark:bg-gray-900 p-4 px-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-[0_10px_40px_rgba(0,0,0,0.02)]">
+          <header className="flex items-center justify-between bg-white dark:bg-gray-900 p-4 px-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-[0_10px_40px_rgba(0,0,0,0.02)] animate-in fade-in slide-in-from-top-4 duration-700">
              <div className="flex items-center gap-6">
                 <button onClick={() => navigate(-1)} className="p-2 text-gray-400 hover:text-red-500 transition-all"><ArrowLeft size={20} /></button>
                 <div>
@@ -155,7 +155,7 @@ const NewTransaction = () => {
              </div>
           </header>
 
-          <section className="bg-white dark:bg-gray-900 p-1 pr-6 rounded-full border border-gray-100 dark:border-gray-800 shadow-[0_20px_60px_rgba(0,0,0,0.04)] flex items-center gap-6 group focus-within:ring-2 focus-within:ring-accent/10 transition-all">
+          <section className="bg-white dark:bg-gray-900 p-1 pr-6 rounded-full border border-gray-100 dark:border-gray-800 shadow-[0_20px_60px_rgba(0,0,0,0.04)] flex items-center gap-6 group focus-within:ring-2 focus-within:ring-accent/10 transition-all animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
              <div className="flex items-center gap-3 bg-accent/5 dark:bg-accent/10 p-3 px-8 rounded-full">
                 <span className="text-2xl font-black text-accent">{currency === 'INR' ? '₹' : currency === 'USD' ? '$' : currency === 'EUR' ? '€' : '£'}</span>
                 <input 
@@ -207,7 +207,7 @@ const NewTransaction = () => {
           <div className="space-y-6">
              
              {/* Capital Reserve: Horizontal Scrolling Strip */}
-             <section className="bg-white dark:bg-gray-900 rounded-[2rem] p-4 px-6 border border-gray-100 dark:border-gray-800 shadow-sm animate-in fade-in slide-in-from-left-8 duration-700 delay-200">
+             <section className="bg-white dark:bg-gray-900 rounded-[2rem] p-4 px-6 border border-gray-100 dark:border-gray-800 shadow-sm animate-in fade-in slide-in-from-left-8 duration-700 delay-[200ms]">
                 <div className="flex items-center justify-between mb-4 px-2">
                    <div className="flex items-center gap-4">
                       <div className="p-1.5 bg-accent/10 text-accent rounded-md"><Database size={14} /></div>
@@ -342,7 +342,7 @@ const NewTransaction = () => {
           </div>
 
 
-          <div className="flex items-center justify-between p-4 px-8 bg-gray-900 dark:bg-accent rounded-full text-white shadow-2xl animate-in slide-in-from-bottom-6 duration-700 delay-300">
+          <div className="flex items-center justify-between p-4 px-8 bg-gray-900 dark:bg-accent rounded-full text-white shadow-2xl animate-in fade-in slide-in-from-bottom-6 duration-700 delay-[500ms]">
              <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest opacity-60">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                 Validation Synchronized

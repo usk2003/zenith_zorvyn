@@ -27,9 +27,9 @@ const CreatorModal = ({ isOpen, onClose }) => {
                    <h3 className="text-2xl font-black italic tracking-tighter uppercase leading-none text-white whitespace-nowrap">Urlana Suresh Kumar</h3>
                 </div>
                 <div className="flex items-center gap-6">
-                   <a href="#" className="p-3 bg-white/5 rounded-2xl text-gray-500 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Linkedin size={18} /></a>
-                   <a href="#" className="p-3 bg-white/5 rounded-2xl text-gray-400 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Twitter size={18} /></a>
-                   <a href="#" className="p-3 bg-white/5 rounded-2xl text-gray-400 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Github size={18} /></a>
+                   <a href="https://www.linkedin.com/in/usk2003/" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-2xl text-gray-500 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Linkedin size={18} /></a>
+                   <a href="https://x.com/_usk2003" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-2xl text-gray-400 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Twitter size={18} /></a>
+                   <a href="https://github.com/usk2003" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-2xl text-gray-400 hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"><Github size={18} /></a>
                 </div>
              </div>
              <p className="text-[10px] font-black text-gray-600 uppercase tracking-widest leading-loose">
@@ -57,10 +57,6 @@ const CreatorModal = ({ isOpen, onClose }) => {
                 <p className="text-sm md:text-base text-gray-500 font-medium leading-relaxed italic pr-6 pb-4 border-b border-white/5">
                    Zenith was architected as a core submission for the <span className="text-emerald-500">Zorvyn Frontend Assessment</span>. What began as a tactical challenge evolved through <span className="text-emerald-500">Scrum/Agile methodology</span> into a full-scale ecosystem, with a strategic roadmap to integrate with <span className="text-emerald-500 hover:underline cursor-pointer" onClick={() => window.open('https://github.com/usk2003/StockTraQ-v2')}>StockTraQ</span> intelligence.
                 </p>
-                <div className="flex items-center gap-6 pt-4">
-                   <div className="flex items-center gap-2 text-[9px] font-black uppercase text-gray-500 tracking-widest"><Shield size={14} className="text-emerald-500" /> AES-256 Validated</div>
-                   <div className="flex items-center gap-2 text-[9px] font-black uppercase text-gray-500 tracking-widest underline decoration-emerald-500/20 underline-offset-4 decoration-2 italic cursor-pointer hover:text-emerald-500 transition-colors" onClick={() => window.location.href = 'mailto:hello@zorvyn.com'}><Mail size={14} /> Contact Node</div>
-                </div>
              </div>
           </div>
 
@@ -154,11 +150,6 @@ const Footer = () => {
                    <p className="text-[9px] font-black uppercase text-gray-400 tracking-[0.3em] group-hover:text-emerald-500 transition-colors">Project Architect</p>
                    <p className="text-sm font-black italic uppercase tracking-tighter text-gray-900 dark:text-white group-hover:underline underline-offset-4 decoration-emerald-500/30 decoration-2">Urlana Suresh Kumar</p>
                 </button>
-                <div className="flex items-center gap-6 px-4">
-                   <a href="#" className="p-2 bg-gray-50 dark:bg-white/5 rounded-xl text-gray-400 hover:text-emerald-500 transition-all"><Linkedin size={14} /></a>
-                   <a href="#" className="p-2 bg-gray-50 dark:bg-white/5 rounded-xl text-gray-400 hover:text-emerald-500 transition-all"><Twitter size={14} /></a>
-                   <a href="#" className="p-2 bg-gray-50 dark:bg-white/5 rounded-xl text-gray-400 hover:text-emerald-500 transition-all"><Github size={14} /></a>
-                </div>
              </div>
           </div>
 

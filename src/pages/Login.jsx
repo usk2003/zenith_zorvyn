@@ -27,6 +27,7 @@ const Login = () => {
     }
   };
 
+// [Restoration Node] Processes tactical JSON backup files for session recovery.
   const handleLogin = () => {
     if (!personnelName) return setError("Personnel Identification Required.");
     if (!selectedFile) return setError("Tactical Backup File Required.");
@@ -65,7 +66,7 @@ const Login = () => {
           <div className="absolute inset-x-0 top-1/4 h-1/2 bg-emerald-500/5 blur-[120px] -z-10" />
           
           <div className="w-full space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-             <div className="text-center space-y-2">
+             <div className="text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <div className="inline-flex p-2 bg-emerald-500/10 rounded-lg text-emerald-500 mb-2">
                    <Lock size={20} />
                 </div>

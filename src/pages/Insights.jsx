@@ -100,12 +100,12 @@ const Insights = () => {
           <div className="text-3xl font-black tracking-tight text-gray-900 dark:text-white">
             {isLoading ? <Skeleton className="h-9 w-64 rounded-xl" /> : 'Strategic Intelligence'}
           </div>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">
+          <div className="text-gray-500 dark:text-gray-400 mt-1">
             {isLoading ? <Skeleton className="h-4 w-48 rounded-lg" /> : 'Advanced pattern analysis and optimization.'}
-          </p>
+          </div>
         </div>
         
-        {/* Navigation Tabs */}
+      {/* [Analytical Navigation] */}
         <div className="flex bg-gray-100 dark:bg-gray-800 p-1.5 rounded-2xl">
           {[
             { id: 'overview', name: 'Overview', icon: <Activity size={16} /> },
@@ -128,21 +128,21 @@ const Insights = () => {
 
       {activeTab === 'overview' && (
         <div className="space-y-8 animate-in fade-in zoom-in-95 duration-500">
-          {/* Insight Cards */}
+          {/* [Diagnostic Cards] */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group">
+             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Top Spend Category</p>
                 <p className="text-2xl font-black text-gray-900 dark:text-white">{metrics.highestCategory}</p>
                 <p className="text-xs text-accent font-medium mt-2 flex items-center gap-1">
                    <Activity size={14} /> Optimization targets found
                 </p>
              </div>
-             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group">
+             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Largest Singe Outflow</p>
                 <p className="text-2xl font-black text-expense">{formatCurrency(metrics.biggestExpense, currency)}</p>
                 <p className="text-xs text-gray-400 font-bold mt-2 uppercase tracking-tight">Requires Oversight</p>
              </div>
-             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group">
+             <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm relative group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Avg. Monthly Spend</p>
                 <p className="text-2xl font-black text-gray-900 dark:text-white">{formatCurrency(metrics.avgMonthlySpend, currency)}</p>
                 <p className="text-xs text-gray-400 font-bold mt-2 uppercase tracking-tight">Based on history</p>
@@ -150,6 +150,7 @@ const Insights = () => {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
+            {/* [Historical Variance] */}
             <div className="lg:col-span-2 p-8 bg-white dark:bg-gray-900 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm">
                <h3 className="text-xl font-black text-gray-900 dark:text-white mb-8">Income vs Expenses (6 Mo)</h3>
                <div className="h-72">
@@ -166,6 +167,7 @@ const Insights = () => {
                </div>
             </div>
 
+            {/* [Spending Concentration] */}
             <div className="p-8 bg-white dark:bg-gray-900 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm">
                <h3 className="text-xl font-black text-gray-900 dark:text-white mb-8">Spending Peaks</h3>
                <div className="grid grid-cols-7 gap-2">
@@ -188,6 +190,7 @@ const Insights = () => {
 
       {activeTab === 'budgets' && (
         <div className="animate-in fade-in slide-in-from-right-8 duration-500">
+           {/* [Budget Protocol] */}
            <div className="grid gap-6 grid-cols-1 lg:grid-cols-4">
               <div className="lg:col-span-3 space-y-4">
                  {budgetData.map(b => (
@@ -243,6 +246,7 @@ const Insights = () => {
 
       {activeTab === 'accounts' && (
         <div className="animate-in fade-in slide-in-from-right-8 duration-500 space-y-8">
+           {/* [Resource Distribution] */}
            <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
               <div className="lg:col-span-2 p-8 bg-white dark:bg-gray-900 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm">
                  <h3 className="text-xl font-black text-gray-900 dark:text-white mb-8">Asset Liquidity & Distribution</h3>
@@ -290,7 +294,7 @@ const Insights = () => {
         </div>
       )}
 
-      {/* AI Smart Observation Summary */}
+      {/* [AI Strategy Summary] */}
       <div 
         className="p-10 bg-gradient-to-br from-accent to-[#059669] rounded-[2.5rem] shadow-2xl shadow-accent/20 relative overflow-hidden group"
       >

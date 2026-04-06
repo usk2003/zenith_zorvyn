@@ -1,11 +1,6 @@
-/**
- * Strategic Intelligence Analytical Engine
- * Handles complex financial modeling for loans, SIPs, and outlier detection.
- */
+// [Analytical Engine] Handles complex financial modeling for loans, SIPs, and outlier detection.
 
-/**
- * Calculates loan metrics including EMI, total interest, and remaining tenure.
- */
+// [Loan Analysis] Calculates loan metrics including EMI, total interest, and remaining tenure.
 export const calculateLoanMetrics = (loan) => {
   const { principal, interestRate, tenure, paidAmount } = loan;
   const monthlyRate = (interestRate / 100) / 12;

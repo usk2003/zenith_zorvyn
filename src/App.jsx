@@ -12,7 +12,20 @@ import Onboarding from './pages/Onboarding';
 import Login from './pages/Login';
 import Legal from './pages/Legal';
 
+import useStore from './store/useStore';
+import React, { useEffect } from 'react';
+
 function App() {
+  const isDarkMode = useStore((state) => state.isDarkMode);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return (
     <Routes>
       <Route path="/" element={<Landing />} />

@@ -6,7 +6,7 @@ import { generateMockPrototypes } from '../utils/dataGenerator';
 const useStore = create(
   persist(
     (set, get) => ({
-      // Accounts Slice
+      // [Accounts]
       accounts: [],
       addAccount: (account) => set((state) => ({ accounts: [...state.accounts, account] })),
       updateAccount: (updated) => set((state) => ({ 
@@ -16,7 +16,7 @@ const useStore = create(
         accounts: state.accounts.filter(a => a.id !== id) 
       })),
 
-      // Categories Slice
+      // [Categories]
       incomeCategories: INCOME_CATEGORIES,
       expenseCategories: EXPENSE_CATEGORIES,
       addCategory: (type, name) => set((state) => ({ 
@@ -26,7 +26,7 @@ const useStore = create(
         [type === 'income' ? 'incomeCategories' : 'expenseCategories']: state[type === 'income' ? 'incomeCategories' : 'expenseCategories'].filter(c => c !== name) 
       })),
 
-      // Budgets Slice
+      // [Budgets]
       budgets: [],
       setBudget: (budget) => set((state) => {
         const exists = state.budgets.find(b => b.category === budget.category);
@@ -36,7 +36,7 @@ const useStore = create(
         return { budgets: [...state.budgets, budget] };
       }),
 
-      // Transactions Slice
+      // [Transactions]
       transactions: [],
       addTransaction: (transaction) => {
         const { accounts } = get();
@@ -71,6 +71,7 @@ const useStore = create(
       deleteTransaction: (id) => 
         set((state) => ({ transactions: state.transactions.filter(t => t.id !== id) })),
       
+      // [Data Administration]
       restoreData: (data) => 
         set({ 
           transactions: data.transactions || [], 
@@ -140,7 +141,7 @@ const useStore = create(
         localStorage.removeItem('zorvyn-storage');
       },
 
-      // User Profile Slice
+      // [User Profile]
       userProfile: {
         name: '',
         jobTitle: '',
@@ -152,6 +153,7 @@ const useStore = create(
       setUserProfile: (profile) =>
         set((state) => ({ userProfile: { ...state.userProfile, ...profile } })),
 
+      // [Security Node]
       security: {
         pin: '1357',
         question: '',
@@ -159,11 +161,11 @@ const useStore = create(
       },
       setSecurity: (sec) => set((state) => ({ security: { ...state.security, ...sec } })),
 
-      // Filters & Sorting Slice
+      // [Filters & Analytics]
       filters: {
         search: '',
-        categories: [], // Empty means all selected
-        type: 'All', // All, income, expense
+        categories: [],
+        type: 'All',
         dateRange: { from: '', to: '' },
         sortBy: 'date',
         sortOrder: 'desc',
@@ -181,7 +183,7 @@ const useStore = create(
         } 
       }),
 
-      // Financial Goals Slice
+      // [Strategic Objectives]
       goals: [],
       addGoal: (goal) => set((state) => ({ goals: [...state.goals, goal] })),
       updateGoal: (updated) => set((state) => ({ 
@@ -191,7 +193,7 @@ const useStore = create(
         goals: state.goals.filter(g => g.id !== id) 
       })),
 
-      // Loans Slice
+      // [Liabilities]
       loans: [],
       addLoan: (loan) => set((state) => ({ loans: [...state.loans, loan] })),
       updateLoan: (updated) => set((state) => ({ 
@@ -199,7 +201,7 @@ const useStore = create(
       })),
       deleteLoan: (id) => set((state) => ({ loans: state.loans.filter(l => l.id !== id) })),
 
-      // Investments Slice
+      // [Investments]
       investments: [],
       addInvestment: (inv) => set((state) => ({ investments: [...state.investments, inv] })),
       updateInvestment: (updated) => set((state) => ({ 
@@ -207,25 +209,23 @@ const useStore = create(
       })),
       deleteInvestment: (id) => set((state) => ({ investments: state.investments.filter(i => i.id !== id) })),
 
-      // Credit Cards Slice
+      // [Credit Infrastructure]
       creditCards: [],
       addCreditCard: (card) => set((state) => ({ creditCards: [...state.creditCards, card] })),
       deleteCreditCard: (id) => set((state) => ({ creditCards: state.creditCards.filter(c => c.id !== id) })),
 
-      // Currency Slice
+      // [Preferences]
       currency: 'INR',
       setCurrency: (currency) => set({ currency }),
-
-      // Role Slice
       role: 'viewer',
       setRole: (role) => set({ role }),
-
-      // Theme Preference
-      isDarkMode: document.documentElement.classList.contains('dark'),
+      isDarkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
       toggleDarkMode: () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.theme = isDark ? 'dark' : 'light';
-        set({ isDarkMode: isDark });
+        set((state) => {
+          const newDark = !state.isDarkMode;
+          localStorage.theme = newDark ? 'dark' : 'light';
+          return { isDarkMode: newDark };
+        });
       }
     }),
     {
@@ -244,14 +244,12 @@ const useStore = create(
         loans: state.loans,
         investments: state.investments,
         creditCards: state.creditCards,
-        currency: state.currency
+        currency: state.currency,
+        isDarkMode: state.isDarkMode
     }), 
     version: 3,
     migrate: (persistedState, version) => {
-        if (version < 3) {
-            // Force reset for old versions to ensure "Zero Data" start
-            return {}; 
-        }
+        if (version < 3) return {}; 
         return persistedState;
     }
   }

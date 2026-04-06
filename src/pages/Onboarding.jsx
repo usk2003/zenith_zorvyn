@@ -36,6 +36,7 @@ const Onboarding = () => {
     mfHorizon: '10'
   });
 
+// [Onboarding Finalization] Commit nodes to store and redirect to command center.
   const handleComplete = () => {
     setUserProfile({ name: formData.name, jobTitle: formData.jobTitle, avatarColor: '#10b981' });
     if (formData.initialBalance) {
@@ -237,7 +238,7 @@ const Onboarding = () => {
              </div>
 
              {/* Content Area (Integrated, not a modal) */}
-             <div className="w-full space-y-4 animate-in fade-in slide-in-from-right-2 duration-500">
+             <div className="w-full space-y-4 animate-in fade-in slide-in-from-right-4 duration-700 delay-[300ms]">
                  <div className="space-y-4">
                     <div className="flex items-start justify-between border-b border-gray-100 dark:border-white/5 pb-3">
                        <div className="space-y-0.5">

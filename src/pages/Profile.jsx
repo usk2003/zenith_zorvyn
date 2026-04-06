@@ -115,7 +115,7 @@ const Profile = () => {
 
       {activeTab === 'identity' && (
         <div className="space-y-8 animate-in slide-in-from-left-4 duration-500">
-          <div className="bg-white dark:bg-gray-900 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden group">
+          <div className="bg-white dark:bg-gray-900 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
             <div className="px-10 py-12">
               <div className="flex items-center gap-10">
                 <div 
@@ -206,7 +206,7 @@ const Profile = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
              <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm flex items-center gap-4">
                 <div className="p-3 bg-accent/10 text-accent rounded-xl"><Wallet size={20} /></div>
                 <div>
@@ -231,7 +231,7 @@ const Profile = () => {
           </div>
 
           {/* Goal Roadmap Section */}
-          <section className="bg-white dark:bg-gray-900 p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 space-y-8 relative overflow-hidden group">
+          <section className="bg-white dark:bg-gray-900 p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 space-y-8 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[100px] rounded-full group-hover:bg-accent/10 transition-colors" />
               <div className="flex items-center justify-between relative z-10">
                   <div>
@@ -318,7 +318,7 @@ const Profile = () => {
         <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8">
             {/* Capital Assets Management */}
-            <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6">
+            <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-75">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                       <h2 className="text-xl font-black uppercase tracking-tight">Capital Assets</h2>
@@ -346,7 +346,7 @@ const Profile = () => {
 
             {/* Currency & Classification Schemas */}
             <div className="space-y-8">
-                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6">
+                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
                   <div>
                       <h2 className="text-xl font-black uppercase tracking-tight">Currency Protocol</h2>
                       <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Global Financial Units Configuration</p>
@@ -373,7 +373,7 @@ const Profile = () => {
                   </div>
                 </section>
 
-                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-8">
+                <section className="bg-white dark:bg-gray-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-225">
                   <div>
                     <h2 className="text-xl font-black uppercase tracking-tight">Classification Schemas</h2>
                     <p className="text-[9px] font-black uppercase text-gray-400 tracking-widest">Income & Expense Taxonomy</p>

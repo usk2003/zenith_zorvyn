@@ -13,7 +13,7 @@ const AppShell = ({ children }) => {
   const { role, userProfile } = useStore();
   
   useEffect(() => {
-    // Strategic Redirect: Only redirect if not authenticated AND path is not a public node
+    // [Access Control] Only redirect if not authenticated AND path is not a public node
     const publicNodes = ['/onboarding', '/terms', '/privacy', '/login', '/'];
     if (!userProfile.name && !publicNodes.includes(location.pathname)) {
       navigate('/onboarding');
@@ -37,14 +37,14 @@ const AppShell = ({ children }) => {
   }, [navigate, role]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 font-sans selection:bg-emerald-500/20 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#050505] font-sans selection:bg-emerald-500/20 transition-colors">
       <CommandPalette />
       
       {/* Main Content Area - Full Width */}
       <div className="flex flex-col min-h-screen">
         <Header />
         
-        <main className="flex-1 p-4 lg:p-8 pt-16 lg:pt-20 overflow-x-hidden pb-32">
+        <main className="flex-1 p-4 lg:p-8 pt-16 lg:pt-20 overflow-x-hidden pb-16">
           <div className="max-w-7xl mx-auto space-y-6">
             {children}
           </div>
