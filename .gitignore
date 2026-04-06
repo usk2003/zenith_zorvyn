@@ -1,0 +1,11 @@
+# Strategic Ignore Protocols
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+.DS_Store
+.vscode
+.idea
+package-lock.json
